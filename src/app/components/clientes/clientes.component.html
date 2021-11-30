@@ -28,6 +28,7 @@
                                 <th>#</th>
                                 <th>Nombre</th>
                                 <th>Saldo</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -35,9 +36,31 @@
                                 <td>{{i + 1}}</td>
                                 <td>{{cliente.nombre}} {{cliente.apellido}} </td>
                                 <td>{{cliente.saldo | currency: 'NIO': 'C$'}} </td>
+                                <td>
+                                    <a routerLink="/cliente/editar/{{cliente.id}}" class="btn btn-secondary"> <i class="fa fa-angle-double-right" aria-hidden="true"></i>Editar  </a>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
+                </div>
+            </div>
+            <!-- tarjetas Laterales -->
+            <div class="col-md-3">
+                <div class="card text-center bg-danger text-white mb-3">
+                    <div class="card-body">
+                        <h3>Saldo Total</h3>
+                        <h4 class="display-4">
+                            {{getSaldoTotal() | currency: 'NIO': 'C$'}}
+                        </h4>
+                    </div>
+                </div>
+                <div class="card text-center bg-success text-white mb-3">
+                    <div class="card-body">
+                        <h3>Total Clientes</h3>
+                        <h4 class="display-4">
+                          <i class="fa fa-user" aria-hidden="true"></i>  {{clientes?.length}}
+                        </h4>
+                    </div>
                 </div>
             </div>
         </div>
