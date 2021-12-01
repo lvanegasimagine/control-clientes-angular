@@ -17,6 +17,7 @@ export class EditarClienteComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private clienteService: ClienteService, private flashMessagesService: FlashMessagesService, private router: Router, private activatedRoute: ActivatedRoute) { 
     this.clienteForm = this.fb.group({
+      id: [''],
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -40,11 +41,11 @@ export class EditarClienteComponent implements OnInit {
   }
 
   actualizar(){
-
-  }
-
-  eliminar(){
-    
+    if(this.clienteForm.valid){
+      this.clienteForm.controls['id'].setValue(this.id);
+      this.clienteService.modificarCliente(this.clienteForm.value);
+      this.router.navigateByUrl('/');
+    }
   }
 
   get nombreValido(){

@@ -10,24 +10,10 @@
     </div>
 </header>
 
-<section class="py-4 mb-4 bg-light">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <a routerLink="/" class="btn btn-light btn-block"> <i class="fa fa-arrow-left" aria-hidden="true"></i> Regresar al Inicio</a>
-            </div>
-            <div class="col-md-3">
-                <button type="submit" class="btn btn-success btn-block"><i class="fa fa-check" aria-hidden="true"></i> Guardar Cliente</button>
-            </div>
-            <div class="col-md-3">
-                <a href="#" (click)="eliminar()" class="btn btn-danger btn-block"> <i class="fa fa-trash" aria-hidden="true"></i> Eliminar Cliente</a>
-            </div>
-        </div>
-    </div>
-</section>
+
 
 <section id="details">
-    <div class="container">
+    <div class="container mt-5">
         <div class="row">
             <div class="col">
                 <div class="card">
@@ -56,6 +42,18 @@
                                 <input type="number" name="saldo" class="form-control" formControlName="saldo" [class.is-invalid]="saldoNoValido" [class.is-valid]="saldoValido">
                                 <div [hidden]="clienteForm.get('saldo').valid" class="invalid-feedback">Saldo Requerido</div>
                             </div>
+                            <section class="py-4 mb-4 bg-light">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <button type="submit" class="btn btn-success btn-block"><i class="fa fa-check" aria-hidden="true"></i> Actualizar Cliente</button>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <a routerLink="/" class="btn btn-light btn-block"> <i class="fa fa-arrow-left" aria-hidden="true"></i> Cancelar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
                         </form>
                     </div>
                 </div>

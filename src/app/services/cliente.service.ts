@@ -54,5 +54,11 @@ export class ClienteService {
     this.clientesColeccion.add(cliente);
   }
 
+  modificarCliente(cliente: Cliente){
+    this.db.collection('clientes').doc(cliente.id).update(cliente);
+  }
 
+  eliminarCliente(cliente: Cliente, id: string){
+    this.db.collection('clientes').doc(id).delete();
+  }
 }

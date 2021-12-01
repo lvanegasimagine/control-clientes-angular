@@ -37,7 +37,8 @@
                                 <td>{{cliente.nombre}} {{cliente.apellido}} </td>
                                 <td>{{cliente.saldo | currency: 'NIO': 'C$'}} </td>
                                 <td>
-                                    <a routerLink="/cliente/editar/{{cliente.id}}" class="btn btn-secondary"> <i class="fa fa-angle-double-right" aria-hidden="true"></i>Editar  </a>
+                                    <a routerLink="/cliente/editar/{{cliente.id}}" class="btn btn-secondary"> <i class="fa fa-angle-double-right" aria-hidden="true"></i>&nbsp; Editar</a>
+                                    <a (click)="eliminar(cliente.id)" class="btn btn-danger ml-2"> <i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Eliminar </a>
                                 </td>
                             </tr>
                         </tbody>
@@ -49,9 +50,9 @@
                 <div class="card text-center bg-danger text-white mb-3">
                     <div class="card-body">
                         <h3>Saldo Total</h3>
-                        <h4 class="display-4">
+                        <h2>
                             {{getSaldoTotal() | currency: 'NIO': 'C$'}}
-                        </h4>
+                        </h2>
                     </div>
                 </div>
                 <div class="card text-center bg-success text-white mb-3">

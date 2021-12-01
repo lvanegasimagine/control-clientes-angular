@@ -51,6 +51,12 @@ export class ClientesComponent implements OnInit {
     }
   }
 
+  eliminar(id: string){
+    if(confirm('Esta seguro que desea eliminar el cliente?')){
+      this.clienteService.eliminarCliente(this.clienteForm.value, id);
+    }
+  }
+
   private cerrarModal(){
     this.botonClose.nativeElement.click();
   }
