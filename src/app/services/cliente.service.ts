@@ -34,5 +34,25 @@ export class ClienteService {
     return this.clientes;
   }
 
+  getCliente(id:string){
+    this.clienteDoc = this.db.doc<Cliente>(`clientes/${id}`);
+    this.cliente = this.clienteDoc.snapshotChanges().pipe(map(accion => {
+      if(accion.payload.exists === false){
+        return null;
+      }
+      else{
+        const datos = accion.payload.data() as Cliente;
+        datos.id = accion.payload.id;
+        return datos;
+      }
+    }
+    ));
+    return this.cliente;
+  }
+
+  agregarCliente(cliente: Cliente){
+    this.clientesColeccion.add(cliente);
+  }
+
 
 }

@@ -1,1 +1,66 @@
-<p>editar-cliente works!</p>
+<header id="main-header" class="py-2 bg-info text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>
+                    <i class="fa fa-user" aria-hidden="true"></i>Editar Cliente
+                </h1>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="py-4 mb-4 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <a routerLink="/" class="btn btn-light btn-block"> <i class="fa fa-arrow-left" aria-hidden="true"></i> Regresar al Inicio</a>
+            </div>
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-success btn-block"><i class="fa fa-check" aria-hidden="true"></i> Guardar Cliente</button>
+            </div>
+            <div class="col-md-3">
+                <a href="#" (click)="eliminar()" class="btn btn-danger btn-block"> <i class="fa fa-trash" aria-hidden="true"></i> Eliminar Cliente</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="details">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Editar Cliente</h4>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="clienteForm" autocomplete="off" (ngSubmit)="actualizar()">
+                            <div class="form-group">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" name="nombre" class="form-control" formControlName="nombre" [class.is-invalid]="nombreNoValido" [class.is-valid]="nombreValido" minlength="2">
+                                <div [hidden]="clienteForm.get('nombre').valid" class="invalid-feedback">Nombre Requerido</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="apellido">Apellido</label>
+                                <input type="text" name="apellido" class="form-control" formControlName="apellido" [class.is-invalid]="apellidoNoValido" [class.is-valid]="apellidoValido">
+                                <div [hidden]="clienteForm.get('apellido').valid" class="invalid-feedback">Apellido Requerido</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="text" name="email" class="form-control" formControlName="email" [class.is-invalid]="emailNoValido" [class.is-valid]="emailValido">
+                                <div [hidden]="clienteForm.get('email').valid" class="invalid-feedback">Email Requerido</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="saldo">Saldo</label>
+                                <input type="number" name="saldo" class="form-control" formControlName="saldo" [class.is-invalid]="saldoNoValido" [class.is-valid]="saldoValido">
+                                <div [hidden]="clienteForm.get('saldo').valid" class="invalid-feedback">Saldo Requerido</div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
