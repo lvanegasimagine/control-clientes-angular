@@ -13,13 +13,23 @@
             </li>
         </ul>
         <ul  class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <li class="nav-item dropdown">
+            <li *ngIf="isLoggedIn" class="nav-item dropdown mr-3">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-user" aria-hidden="true"></i>&nbsp; Bienvenido
+                    <i class="fas fa-user" aria-hidden="true"></i>&nbsp; Bienvenido {{loggedInUser}}
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownId">
                     <a class="dropdown-item"routerLink="/configuracion"> <i class="fa fa-cog" aria-hidden="true"></i> Configuracion</a>
                 </div>
+            </li>
+            <li *ngIf="!isLoggedIn" class="nav-item">
+                <a routerLink="/login" class="nav-link">
+                    <i class="fa fa-user" aria-hidden="true"></i> &nbsp;Login
+                </a>
+            </li>
+            <li *ngIf="isLoggedIn" class="nav-item">
+                <a style="cursor: pointer;" class="nav-link" (click)="logout()">
+                    <i class="fa fa-user-times" aria-hidden="true"></i> &nbsp;Logout
+                </a>
             </li>
         </ul>
     </div>
