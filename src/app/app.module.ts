@@ -18,8 +18,7 @@ import { EditarClienteComponent } from './components/editar-cliente/editar-clien
 import { LoginComponent } from './auth/login/login.component';
 import { RegistroComponent } from './auth/registro/registro.component';
 import { ConfiguracionComponent } from './components/configuracion/configuracion.component';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { FooterComponent } from './shared/footer/footer.component';
+
 
 @NgModule({
   declarations: [
@@ -31,8 +30,6 @@ import { FooterComponent } from './shared/footer/footer.component';
     LoginComponent,
     RegistroComponent,
     ConfiguracionComponent,
-    NotFoundComponent,
-    FooterComponent
   ],
   imports: [
     BrowserModule,
