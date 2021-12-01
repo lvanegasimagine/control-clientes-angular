@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { Login } from '../core/login.model';
+import { Login, Registro } from '../core/login.model';
 import { map } from "rxjs/operators";
 
 @Injectable({
@@ -17,6 +17,15 @@ export class LoginService {
             error => reject(error)
         })
     });
+  }
+
+  registrarse({email, password}: Registro){
+    return new Promise((resolve, reject) => {
+      this.authService.createUserWithEmailAndPassword(email,password).then(datos => {
+        resolve(datos),
+        error => reject(error)
+      })
+    })
   }
 
   getAuth(){
